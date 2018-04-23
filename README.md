@@ -1,13 +1,13 @@
 ## Hadoop
 
 #### Table of Contents
-[1. Hadoop](#1-hadoop)
+- [1. Hadoop](#1-hadoop)
     + [Prerequisites](#prerequisites)
-[2. Getting Started with Hadoop](#2-getting-started-with-hadoop)
-[3. HDFS Architecture](#3-hdfs-architecture)
-[4. Map Reduce](#4-map-reduce)
-[5. YARN (MapReduce - 2)](#5-yarn--mapreduce---2-)
-[6. Hive](#6-hive)
+- [2. Getting Started with Hadoop](#2-getting-started-with-hadoop)
+- [3. HDFS Architecture](#3-hdfs-architecture)
+- [4. Map Reduce](#4-map-reduce)
+- [5. YARN (MapReduce - 2)](#5-yarn--mapreduce---2-)
+- [6. Hive](#6-hive)
   * [6.1. Introduction](#61-introduction)
   * [6.2. HIVE Architecture](#62-hive-architecture)
   * [6.3. Partitioning](#63-partitioning)
@@ -15,11 +15,11 @@
     + [6.3.2. Dynamic Partitioning](#632-dynamic-partitioning)
   * [6.4. Bucketing](#64-bucketing)
   * [6.5. Index](#65-index)
-[7. PIG](#7-pig)
-[8. SQOOP](#8-sqoop)
-[9. HBase](#9-hbase)
-[10. Oozie](#10-oozie)
-[Installation and Setup](#installation-and-setup)
+- [7. PIG](#7-pig)
+- [8. SQOOP](#8-sqoop)
+- [9. HBase](#9-hbase)
+- [10. Oozie](#10-oozie)
+- [Installation and Setup](#installation-and-setup)
   * [1. Java Installation](#1-java-installation)
   * [2. Hadoop Installation in Pseudo Distributed mode](#2-hadoop-installation-in-pseudo-distributed-mode)
   * [3. MySQL Installation](#3-mysql-installation)
@@ -27,7 +27,7 @@
   * [5. Hive Installation](#5-hive-installation)
   * [6. Hadoop Framework Code Setup](#6-hadoop-framework-code-setup)
     + [Pre-requisite](#pre-requisite)
-[Importing code to eclipse.](#importing-code-to-eclipse)
+- [Importing code to eclipse.](#importing-code-to-eclipse)
 
 ## 1. Hadoop
 #### Prerequisites
