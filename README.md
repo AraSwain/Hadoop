@@ -72,6 +72,7 @@ set hive.exec.dynamic.partition.mode=nonstrict;
 ### 6.4. Bucketing
 
 ### 6.5. Index
+
 ## 7. PIG
 
 ## 8. SQOOP
