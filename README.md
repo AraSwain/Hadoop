@@ -72,7 +72,45 @@ set hive.exec.dynamic.partition.mode=nonstrict;
 
 # 10. Oozie
 
-# Hadoop Framework Code Setup
+# Installation and Setup
+
+## 1. Java Installation
+
+## 2. Hadoop Installation in Pseudo Distributed mode
+
+## 3. MySQL Installation
+To install MySQL, you need to update the package index on your system and then install the package with `apt-get`
+```sh
+sudo apt-get update
+sudo apt-get install mysql-server
+```
+
+To check the MySQL version
+```sh
+mysql --version
+```
+
+**Configure MySQL**
+```sh
+sudo mysql_secure_installation
+```
+This will ask you for the root password you created in the above step. Then it will take you to configurations questions. You can press `ENTER` to set the defaults.
+
+**Checking MySQL Status**
+```sh
+service mysql status
+```
+
+You can start/stop MySQL service by running the following command.
+```sh
+service mysql start/stop
+```
+
+## 4. Pig Installation
+
+## 5. Hive Installation
+
+## 6. Hadoop Framework Code Setup
 
 ### Pre-requisite
 * Java 1.8.x or later
