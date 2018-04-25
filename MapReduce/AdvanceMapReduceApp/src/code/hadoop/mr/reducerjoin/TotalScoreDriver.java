@@ -32,7 +32,7 @@ public class TotalScoreDriver {
 	myJob.setJobName("PlayerTotalScore");
 	myJob.setJarByClass(TotalScoreDriver.class);
 
-	myJob.setMapperClass(PlayerTotalScoreMapper.class);
+	//myJob.setMapperClass(PlayerTotalScoreMapper.class);
 	myJob.setReducerClass(PlayerScoreCountryJoinReducer.class);
 
 	myJob.setMapOutputKeyClass(Text.class);
