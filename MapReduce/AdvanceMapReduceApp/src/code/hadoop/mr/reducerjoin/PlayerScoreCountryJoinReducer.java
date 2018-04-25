@@ -27,10 +27,10 @@ public class PlayerScoreCountryJoinReducer extends Reducer<Text, Text, Text, Tex
 	    
 	    
 	    String[] valArray = val.toString().split("\t");
-	    if(valArray[1].equals("flag_A")) {
+	    if(valArray[1].equals("flagA")) {
 		sum = sum + Integer.parseInt(valArray[0]);
 	    }
-	    else if(valArray[1].equals("flag_B")) {
+	    else if(valArray[1].equals("flagB")) {
 		country = valArray[0];
 	    }
 	}
