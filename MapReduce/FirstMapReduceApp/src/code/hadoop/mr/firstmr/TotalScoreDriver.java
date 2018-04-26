@@ -24,7 +24,6 @@ public class TotalScoreDriver {
 	Job myJob = new Job();
 
 	// Set Job properties
-	// myJob.setJarByClass(cls);
 	myJob.setJobName("PlayerTotalScore");
 	myJob.setJarByClass(TotalScoreDriver.class);
 
@@ -35,7 +34,7 @@ public class TotalScoreDriver {
 	myJob.setMapOutputValueClass(IntWritable.class);
 
 	myJob.setOutputKeyClass(Text.class);
-	myJob.setOutputKeyClass(IntWritable.class);
+	myJob.setOutputValueClass(IntWritable.class);
 
 	myJob.setInputFormatClass(TextInputFormat.class);
 	myJob.setOutputFormatClass(TextOutputFormat.class);

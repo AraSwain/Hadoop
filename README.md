@@ -54,24 +54,6 @@ Hive is a data warehouse tool to process structured data in Hadoop. It built on 
 
 In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Query Language) with HDFS (Hadoop Distributed File System).
 
-### 6.1. Introduction
-
-### 6.2. HIVE Architecture
-
-### 6.3. Partitioning
-#### 6.3.1. Static Partitioning
-
-#### 6.3.2. Dynamic Partitioning
-```sh
-set hive.exec.dynamic.partition=true;
-```
-```sh
-set hive.exec.dynamic.partition.mode=nonstrict;
-```
-
-### 6.4. Bucketing
-
-### 6.5. Index
 
 ## 7. PIG
 
