@@ -28,18 +28,16 @@ public class TotalScoreDriver {
 	Job myJob = new Job();
 
 	// Set Job properties
-	// myJob.setJarByClass(cls);
 	myJob.setJobName("PlayerTotalScore");
 	myJob.setJarByClass(TotalScoreDriver.class);
 
-	//myJob.setMapperClass(PlayerTotalScoreMapper.class);
 	myJob.setReducerClass(PlayerScoreCountryJoinReducer.class);
 
 	myJob.setMapOutputKeyClass(Text.class);
 	myJob.setMapOutputValueClass(Text.class);
 
 	myJob.setOutputKeyClass(Text.class);
-	myJob.setOutputKeyClass(Text.class);
+	myJob.setOutputValueClass(Text.class);
 
 	myJob.setInputFormatClass(TextInputFormat.class);
 	myJob.setOutputFormatClass(TextOutputFormat.class);
