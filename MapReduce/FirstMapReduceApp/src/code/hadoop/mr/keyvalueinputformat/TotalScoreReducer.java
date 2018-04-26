@@ -1,4 +1,4 @@
-package code.hadoop.mp.keyvalueinputformat;
+package code.hadoop.mr.keyvalueinputformat;
 
 import java.io.IOException;
 
