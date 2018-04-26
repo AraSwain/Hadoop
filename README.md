@@ -8,13 +8,6 @@
 - [4. Map Reduce](#4-map-reduce)
 - [5. YARN (MapReduce - 2)](#5-yarn--mapreduce---2-)
 - [6. Hive](#6-hive)
-  * [6.1. Introduction](#61-introduction)
-  * [6.2. HIVE Architecture](#62-hive-architecture)
-  * [6.3. Partitioning](#63-partitioning)
-    + [6.3.1. Static Partitioning](#631-static-partitioning)
-    + [6.3.2. Dynamic Partitioning](#632-dynamic-partitioning)
-  * [6.4. Bucketing](#64-bucketing)
-  * [6.5. Index](#65-index)
 - [7. PIG](#7-pig)
 - [8. SQOOP](#8-sqoop)
 - [9. HBase](#9-hbase)
@@ -53,7 +46,7 @@ Hadoop consists of the below two modules.
 Hive is a data warehouse tool to process structured data in Hadoop. It built on top of MapReduce to process Big Data. It makes querying and analyzing as easy as SQL.
 
 In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Query Language) with HDFS (Hadoop Distributed File System).
-
+[Deteiled Hive Tutorial and scripts](https://github.com/AraSwain/Hadoop/tree/master/HIVE)
 
 ## 7. PIG
 
