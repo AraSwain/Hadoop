@@ -1,4 +1,4 @@
-package code.hadoop.mr.extraconfig;
+package code.hadoop.mp.keyvalueinputformat;
 
 import java.io.IOException;
 
@@ -27,7 +27,5 @@ public class TotalScoreReducer extends Reducer<Text, IntWritable, Text, IntWrita
 
 	totalScore.set(sum);
 	context.write(keyIntd, totalScore);
-
-	// context.write(keyIntd, new IntWritable(sum));
     }
 }

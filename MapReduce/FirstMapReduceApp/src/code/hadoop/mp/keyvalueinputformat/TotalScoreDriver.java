@@ -1,4 +1,4 @@
-package code.hadoop.mr.extraconfig;
+package code.hadoop.mp.keyvalueinputformat;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
@@ -40,7 +42,7 @@ public class TotalScoreDriver {
 	myJob.setOutputKeyClass(Text.class);
 	myJob.setOutputKeyClass(IntWritable.class);
 
-	myJob.setInputFormatClass(TextInputFormat.class);
+	myJob.setInputFormatClass(KeyValueTextInputFormat.class);
 	myJob.setOutputFormatClass(TextOutputFormat.class);
 
 	FileInputFormat.addInputPath(myJob, new Path(args[0]));
@@ -51,7 +53,7 @@ public class TotalScoreDriver {
 	dfs.deleteOnExit(new Path(args[1]));
 	
 	// Set required number of Reducers
-	myJob.setNumReduceTasks(4);
+	myJob.setNumReduceTasks(1);
 
 	// Run the Job
 	myJob.waitForCompletion(true);
