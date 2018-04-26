@@ -1,8 +1,7 @@
-package code.hadoop.mr.extraconfig;
-
-import java.io.IOException;
+package code.hadoop.mr.gop;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -12,6 +11,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 /**
  * Driver class to find total score by a player
@@ -20,16 +21,20 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
  * @author Aravind
  *
  */
-public class TotalScoreDriver {
-    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+public class TotalScoreDriverGOP  extends Configured implements Tool{
+    public static void main(String[] args) throws Exception {
+	ToolRunner.run(new Configuration(), new TotalScoreDriverGOP(), args);
+    }
+
+    @Override
+    public int run(String[] args) throws Exception {
 
 	// Create a job object
 	Job myJob = new Job();
 
 	// Set Job properties
-	// myJob.setJarByClass(cls);
-	myJob.setJobName("PlayerTotalScore");
-	myJob.setJarByClass(TotalScoreDriver.class);
+	myJob.setJobName("GOP_Player_TotalScore");
+	myJob.setJarByClass(TotalScoreDriverGOP.class);
 
 	myJob.setMapperClass(TotalScoreMapper.class);
 	myJob.setReducerClass(TotalScoreReducer.class);
@@ -50,10 +55,10 @@ public class TotalScoreDriver {
 	FileSystem dfs = FileSystem.get(new Configuration());
 	dfs.deleteOnExit(new Path(args[1]));
 	
-	// Set required number of Reducers
-	myJob.setNumReduceTasks(4);
-
 	// Run the Job
-	myJob.waitForCompletion(true);
+	boolean status = myJob.waitForCompletion(true);
+	return status ? 0 : 1;
     }
+    
+    
 }

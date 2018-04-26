@@ -38,7 +38,7 @@ public class TotalScoreDriver {
 	myJob.setMapOutputValueClass(IntWritable.class);
 
 	myJob.setOutputKeyClass(Text.class);
-	myJob.setOutputKeyClass(IntWritable.class);
+	myJob.setOutputValueClass(IntWritable.class);
 
 	//myJob.setInputFormatClass(TextInputFormat.class);
 	NLineInputFormat.setNumLinesPerSplit(myJob, 30);
