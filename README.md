@@ -46,6 +46,7 @@ Hadoop consists of the below two modules.
 Hive is a data warehouse tool to process structured data in Hadoop. It built on top of MapReduce to process Big Data. It makes querying and analyzing as easy as SQL.
 
 In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Query Language) with HDFS (Hadoop Distributed File System).
+
 [Deteiled Hive Tutorial and scripts](https://github.com/AraSwain/Hadoop/tree/master/HIVE)
 
 ## 7. PIG
