@@ -1,5 +1,5 @@
 ![hadoop_logo_200px](https://user-images.githubusercontent.com/16832588/39321308-488f04c4-49a4-11e8-897a-7cdb64d9e72c.png)
-#### Table of Contents
+### Table of Contents
 - [1. Hadoop](#1-hadoop)
     + [Prerequisites](#prerequisites)
 - [2. Getting Started with Hadoop](#2-getting-started-with-hadoop)
