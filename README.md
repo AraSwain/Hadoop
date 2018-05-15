@@ -59,13 +59,13 @@ In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Qu
 ## Installation and Setup (with Ubuntu 16.04 OS)
 
 ### 1. Java Installation
-    - To install JDK 8 in Ubuntu, run the below commands on console
+  - To install JDK 8 in Ubuntu, run the below commands on console
     ```sh
     sudo apt-add-repository ppa:webupd8team/java
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
     ```
-    - Add the below line at the end of `~/.bashrc` file
+  - Add the below line at the end of `~/.bashrc` file
     ```sh
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     ```
