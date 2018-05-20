@@ -74,6 +74,25 @@ In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Qu
     ```
 
 ### 2. Hadoop Installation in Pseudo Distributed mode
+Hadoop can also be run on a single-node in a pseudo-distributed mode where each Hadoop daemon runs in a separate Java process.
+#### 2.1 Prerequisite
+   - **Java™** must be installed.
+        - If you have note intstalled Java, [check here how to install Java] (https://github.com/AraSwain/Hadoop#1-java-installation)
+   - **ssh** must be installed and sshd must be running to use the Hadoop scripts that manage remote Hadoop daemons.
+        - If you have not installed ssh, then run the below commands
+        ```sh
+        $ sudo apt-get install ssh
+	    $ sudo apt-get install rsync
+        ```
+#### 2.2
+
+#### 2.3
+
+#### 2.4
+
+#### 2.5
+
+#### 2.6
 
 ### 3. MySQL Installation
 To install MySQL, you need to update the package index on your system and then install the package with `apt-get`
