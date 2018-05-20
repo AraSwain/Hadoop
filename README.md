@@ -65,9 +65,12 @@ In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Qu
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
     ```
-  - Add the below line at the end of `~/.bashrc` file
+  - Most of Java based application’s uses environment variables to work. Use following commands to set these environment variable. It’s also good to add following commands to the start-up script like ~/.bashrc or ~/.bash_profile.
     ```sh
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+    export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
+    
+    export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
     ```
 
 ### 2. Hadoop Installation in Pseudo Distributed mode
