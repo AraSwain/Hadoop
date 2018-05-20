@@ -77,22 +77,128 @@ In this tutorial we will briefly discuss how to use Apache Hive and HQL (Hive Qu
 Hadoop can also be run on a single-node in a pseudo-distributed mode where each Hadoop daemon runs in a separate Java process.
 #### 2.1 Prerequisite
    - **Java™** must be installed.
-        - If you have note intstalled Java, [check here how to install Java] (https://github.com/AraSwain/Hadoop#1-java-installation)
+        - If you have note intstalled Java, [click here to check java installation steps](https://github.com/AraSwain/Hadoop#1-java-installation)
    - **ssh** must be installed and sshd must be running to use the Hadoop scripts that manage remote Hadoop daemons.
         - If you have not installed ssh, then run the below commands
         ```sh
-        $ sudo apt-get install ssh
-	    $ sudo apt-get install rsync
+         $ sudo apt-get install ssh
+	 $ sudo apt-get install rsync
         ```
-#### 2.2
+#### 2.2 Add a User (Optional)
+It is recommended to create a normal (not root) linux account for hadoop. So create a user account using following command. Run the below commands from a super/root user.
+	```sh
+	# adduser aravind  
+	# passwd aravind
+	```
 
-#### 2.3
+#### 2.3 Setup passphraseless ssh
+- To check if you can ssh to the localhost without a passphrase, run the below command:
+	```sh
+	$ ssh localhost
+	```
+- If you cannot ssh to localhost without a passphrase, run the following commands:
+	```sh
+	$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+	$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+	$ chmod 0600 ~/.ssh/authorized_keys
+	```
+#### 2.4 Download and Unpack Hadoop package
+To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/)
 
-#### 2.4
+I have downloaded and configured **hadoop-2.9.1**. If you want to install a different version of Hadoop, change the version in the commands accordingly.
+	```sh
+	$ wget http://redrockdigimark.com/apachemirror/hadoop/common/stable/hadoop-2.9.1.tar.gz
+	$ tar -xzvf hadoop-2.9.1.tar.gz
+	$ mv hadoop-2.9.1 /home/aravind/hadoop
+	```
+**NOTE** : *Here aravind is the linux user. If you have a different username, update it accordingly.*
+#### 2.5 Set Environment Variables
+- First we need to set environment variable used by hadoop. Edit ~/.bashrc file and append following values at end of file.
+	```sh
+	#Hadoop environment variable
+ 	export HADOOP_HOME=/home/aravind/hadoop //path where hadoop is installed
+ 	export HADOOP_INSTALL=$HADOOP_HOME
+ 	export HADOOP_MAPRED_HOME=$HADOOP_HOME
+ 	export HADOOP_COMMON_HOME=$HADOOP_HOME
+ 	export HADOOP_HDFS_HOME=$HADOOP_HOME
+ 	export YARN_HOME=$HADOOP_HOME
+ 	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+ 	export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+	```
+- Source the `.bashrc` file to take effect immediately. Run the below command
+	```sh
+	$ source ~/.bashrc
+	```
+- Set the Java path to be used for the Hadoop. Edit the file `$HADOOP_HOME/etc/hadoop/hadoop-env.sh` and add the below parameters to the file. (or update if already exists.)
+	```sh
+	export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+	```
+- Now run the below command, to test hadoop installation.
+	```sh
+	$ hadoop
+	```
+This will display the usage documentation for the hadoop script.
 
-#### 2.5
+#### 2.6 Configuring HDFS
+- Edit the `$HADOOP_HOME/etc/hadoop/core-site.xml` file and add the below property.
+	```sh
+	<configuration>
+    		<property>
+        		<name>fs.defaultFS</name>
+        		<value>hdfs://localhost:9000</value>
+    		</property>
+	</configuration>
+	```
+- Edit the `$HADOOP_HOME/etc/hadoop/hdfs-site.xml` file and add the below property
+	```sh
+	<configuration>
+    		<property>
+        		<name>dfs.replication</name>
+        		<value>1</value>
+    		</property>
+	</configuration>
+	```
+- Format the filesystem.
+	```sh
+	$ hdfs namenode -format
+	```
+- Start NameNode daemon and DataNode daemon
+	```sh
+	$ start-dfs.sh
+	```
+*The hadoop daemon log output is written to the $HADOOP_LOG_DIR directory (defaults to $HADOOP_HOME/logs).*
+- Open the web interface for the NameNode. By default it is accessible at:
+	```sh
+	NameNode - http://localhost:50070/
+	```
 
-#### 2.6
+#### 2.7 Configuring YARN
+- To configure YARN, edit the `$HADOOP_HOME/etc/hadoop/mapred-site.xml` file and add the below property.
+	```sh
+	<configuration>
+    		<property>
+        		<name>mapreduce.framework.name</name>
+        		<value>yarn</value>
+    		</property>
+	</configuration>
+	```
+- And edit `$HADOOP_HOME/etc/hadoop/yarn-site.xml` file and add the below property.
+	```sh
+	<configuration>
+    		<property>
+        		<name>yarn.nodemanager.aux-services</name>
+        		<value>mapreduce_shuffle</value>
+    		</property>
+	</configuration>
+	```
+- Start ResourceManager and NodeManager daemon.
+	```sh
+	$ start-yarn.sh
+	```
+- OPen the web interface for the ResourceManager. By default it is accessible at
+	```sh
+	ResourceManager - http://localhost:8088/
+	```
 
 ### 3. MySQL Installation
 To install MySQL, you need to update the package index on your system and then install the package with `apt-get`
