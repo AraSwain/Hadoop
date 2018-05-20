@@ -80,10 +80,10 @@ Hadoop can also be run on a single-node in a pseudo-distributed mode where each 
         - If you have note intstalled Java, [click here to check java installation steps](https://github.com/AraSwain/Hadoop#1-java-installation)
    - **ssh** must be installed and sshd must be running to use the Hadoop scripts that manage remote Hadoop daemons.
         - If you have not installed ssh, then run the below commands
-        ```sh
-         $ sudo apt-get install ssh
-	 $ sudo apt-get install rsync
-        ```
+		```sh
+       		$ sudo apt-get install ssh
+		$ sudo apt-get install rsync
+        	```
 #### 2.2 Add a User (Optional)
 It is recommended to create a normal (not root) linux account for hadoop. So create a user account using following command. Run the below commands from a super/root user.
 	```sh
