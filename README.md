@@ -103,9 +103,9 @@ It is recommended to create a normal (not root) linux account for hadoop. So cre
 	$ chmod 0600 ~/.ssh/authorized_keys
 	```
 #### 2.4 Download and Unpack Hadoop package
-To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/)
+- To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/)
 
-I have downloaded and configured **hadoop-2.9.1**. If you want to install a different version of Hadoop, change the version in the commands accordingly.
+- I have downloaded and configured **hadoop-2.9.1**. If you want to install a different version of Hadoop, change the version in the commands accordingly.
 	```sh
 	$ wget http://redrockdigimark.com/apachemirror/hadoop/common/stable/hadoop-2.9.1.tar.gz
 	$ tar -xzvf hadoop-2.9.1.tar.gz
@@ -113,7 +113,7 @@ I have downloaded and configured **hadoop-2.9.1**. If you want to install a diff
 	```
 **NOTE** : *Here aravind is the linux user. If you have a different username, update it accordingly.*
 #### 2.5 Set Environment Variables
-- First we need to set environment variable used by hadoop. Edit ~/.bashrc file and append following values at end of file.
+- First we need to set environment variable used by hadoop. Edit `~/.bashrc` file and append following values at end of file.
 	```sh
 	#Hadoop environment variable
  	export HADOOP_HOME=/home/aravind/hadoop //path where hadoop is installed
