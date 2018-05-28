@@ -156,6 +156,14 @@ This will display the usage documentation for the hadoop script.
         		<name>dfs.replication</name>
         		<value>1</value>
     		</property>
+    		<property>
+        		<name>dfs.namenode.name.dir</name>
+        		<value>/home/aravind/hadoop-temp/hdfs/namenode</value>
+    		</property>
+    		<property>
+        		<name>dfs.datanode.data.dir</name>
+        		<value>/home/aravind/hadoop-temp/hdfs/datanode</value>
+    		</property>
 	</configuration>
 	```
 - Format the filesystem.
