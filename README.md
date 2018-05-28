@@ -201,7 +201,9 @@ This will display the usage documentation for the hadoop script.
 	```
 
 ### 3. MySQL Installation
-To install MySQL, you need to update the package index on your system and then install the package with `apt-get`
+#### 3.1 My SQL on Ununtu 16.04
+To install MySQL, you need to update the package index on your system and then install the package with `apt-get` for Ubuntu 16.04.
+
 ```sh
 sudo apt-get update
 sudo apt-get install mysql-server
@@ -223,10 +225,57 @@ This will ask you for the root password you created in the above step. Then it w
 service mysql status
 ```
 
-You can start/stop MySQL service by running the following command.
+You can start/stop MySQL service by running the following command respectively.
 ```sh
-service mysql start/stop
+service mysql start
+service mysql stop
 ```
+
+**Connect to the root user**
+Run the below command to connect to the root user.
+```sh
+mysql -u root -p
+```
+This will ask for the mysql root user password. After providing the password it will open `mysql>` console
+
+#### 3.2 MySQL On Ubuntu 18.04
+To install MySQL, you need to update the package index on your system and then install the package with `apt` for Ubuntu 18.04
+
+```sh
+sudo apt update
+sudo apt install mysql-server
+```
+
+To check the MySQL version
+```sh
+mysql --version
+```
+
+**Configure MySQL**
+```sh
+sudo mysql_secure_installation
+```
+This will ask you for the root password you created in the above step. Then it will take you to configurations questions. Read the questions and set the configuration accordingly.
+
+**Checking MySQL Status**
+After installation MySQL will start automatically. To check MySQL status run the below command
+
+```sh
+systemctl status mysql.service
+```
+
+You can start/stop MySQL service by running the following command respectively.
+```sh
+systemctl start mysql.service
+systemctl stop mysql.service
+```
+
+**Connect to the root user**
+Run the below command to connect to the root user.
+```sh
+mysql -u root -p
+```
+This will ask for the mysql root user password. After providing the password it will open `mysql>` console
 
 ### 4. Pig Installation
 
