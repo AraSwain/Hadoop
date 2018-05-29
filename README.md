@@ -294,29 +294,28 @@ http://redrockdigimark.com/apachemirror/pig/
 
 #### 5.2. Unpack
 Unpack the pig package file and move it to /home/user directory by running the below commands
-	```sh
-	tar -xzvf pig-0.17.0.tar.gz
-	mv pig-0.17.0 /home/aravind/pig
-	```
+```sh
+tar -xzvf pig-0.17.0.tar.gz
+mv pig-0.17.0 /home/aravind/pig
+```
 #### 5.3. Set Environment variables
 Edit `~/.bashrc` file and append the below three lines at the end of the file.
-	```sh
-	###  Pig environment variables
-	export PIG_HOME=/home/aravind/pig
-	export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
-	export PATH=$PATH:$PIG_HOME/bin
-	```
+```sh
+export PIG_HOME=/home/aravind/pig
+export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
+export PATH=$PATH:$PIG_HOME/bin
+```
 #### 5.4. Configure Pig
 Update the conf/pig.properties file and update the required parameters
-	```sh
-	verbose = true|false
-	exectype = mapreduce|tez|local
-	```
+```sh
+verbose = true|false
+exectype = mapreduce|tez|local
+```
 #### 5.5. Verifying the Installation
 Verifying the Installation by running the below command
-	```sh
-	pig -version
-	```
+```sh
+pig -version
+```
 you will get the below output
 ```sh
 Apache Pig version 0.17.0 (r1797386) 
