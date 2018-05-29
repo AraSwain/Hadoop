@@ -15,8 +15,8 @@
   * [1. Java Installation](#1-java-installation)
   * [2. Hadoop Installation in Pseudo Distributed mode](#2-hadoop-installation-in-pseudo-distributed-mode)
   * [3. MySQL Installation](#3-mysql-installation)
-  * [4. Pig Installation](#4-pig-installation)
-  * [5. Hive Installation](#5-hive-installation)
+  * [4. Hive Installation](#4-hive-installation)
+  * [5. Pig Installation](#5-pig-installation)
   * [6. Hadoop Framework Code Setup](#6-hadoop-framework-code-setup)
     + [Pre-requisite](#pre-requisite)
 - [Importing code to eclipse.](#importing-code-to-eclipse)
@@ -285,10 +285,44 @@ mysql -u root -p
 ```
 This will ask for the mysql root user password. After providing the password it will open `mysql>` console
 
-### 4. Pig Installation
+### 4. Hive Installation
 
-### 5. Hive Installation
+### 5. Pig Installation
+#### 5.1. Download Pig package
+Download the required version of Apache Pig package from the below link
+http://redrockdigimark.com/apachemirror/pig/
 
+#### 5.2. Unpack
+Unpack the pig package file and move it to /home/user directory by running the below commands
+	```sh
+	tar -xzvf pig-0.17.0.tar.gz
+	mv pig-0.17.0 /home/aravind/pig
+	```
+#### 5.3. Set Environment variables
+Edit `~/.bashrc` file and append the below three lines at the end of the file.
+	```sh
+	###  Pig environment variables
+	export PIG_HOME=/home/aravind/pig
+	export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
+	export PATH=$PATH:$PIG_HOME/bin
+	```
+#### 5.4. Configure Pig
+Update the conf/pig.properties file and update the required parameters
+	```sh
+	verbose = true|false
+	exectype = mapreduce|tez|local
+	```
+#### 5.5. Verifying the Installation
+Verifying the Installation by running the below command
+	```sh
+	pig -version
+	```
+you will get the below output
+```sh
+Apache Pig version 0.17.0 (r1797386) 
+compiled Jun 02 2017, 15:41:58
+```
+	
 ### 6. Hadoop Framework Code Setup
 
 #### Pre-requisite
