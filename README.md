@@ -321,8 +321,92 @@ you will get the below output
 Apache Pig version 0.17.0 (r1797386) 
 compiled Jun 02 2017, 15:41:58
 ```
-	
-### 6. Hadoop Framework Code Setup
+### 6. HBase Installation
+Before installing HBase I hope, you already have installed and configured Java and Hadoop.
+#### 6.1. Download HBase
+Download and extract HBase package.
+```sh
+sudo wget http://redrockdigimark.com/apachemirror/hbase/stable/hbase-1.2.6-bin.tar.gz
+tar -xzvf hbase-1.2.6-bin.tar.gz
+mv hbase-1.2.6 /home/aravind/hbase
+```
+#### 6.2. Set Environment variables
+- Edit `~/.bashrc` file and append the below three lines at the end of the file.
+```sh
+export HBASE_HOME=/home/aravind/hbase
+export PATH=$PATH:$HBASE_HOME/bin
+```
+#### 6.3. Configure HBase
+- Open hbase-env.sh and updated  JAVA_HOME path and Region servers's path.
+```sh
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export HBASE_MANAGES_ZK=true
+export HBASE_REGIONSERVERS=${HBASE_HOME}/conf/regionservers
+```
+- Edit `/home/aravind/hbase/conf/hbase-site.xml` file to add the following properties.
+```sh
+<property>
+   <name>hbase.cluster.distributed</name>
+   <value>true</value>
+</property>
+<property>
+   <name>hbase.rootdir</name>
+   <value>hdfs://localhost:8030/hbase</value>
+</property>
+<property>
+   <name>hbase.zookeeper.quorum</name>
+   <value>localhost</value>
+</property>
+<property>
+   <name>dfs.replication</name>
+   <value>1</value>
+</property>
+<property>
+   <name>hbase.zookeeper.property.clientPort</name>
+   <value>2181</value>
+</property>
+<property>
+   <name>hbase.zookeeper.property.dataDir</name>
+   <value>/home/aravind/hbase/zookeeper</value>
+</property>
+```
+
+- Start Hadoop and create a directory `/hbase`, by running the following commands
+```sh
+start-all.sh
+hadoop fs -mkdir /hbase
+```
+
+#### 6.4. Start HBase
+- Run the below command to start HBase
+```sh
+start-hbase.sh
+```
+**Verify** : You can see the below 3 services along with other Hadoop services running when you execute jps command.
+```sh
+$ jps
+6164 HRegionServer
+5975 HQuorumPeer
+6039 HMaster
+```
+Note: Before starting HBase, make sure Hadoop is running.
+
+- Start HBase Shell by running the below command.
+```sh
+hbase shell
+```
+This will give you the HBase Shell Prompt as shown below.
+```sh
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):001:0> 
+```
+- **HBase Web Interface** : Open the below URL with your web browser to access the web interface of HBase.
+http://localhost:16010
+
+### 7. Hadoop Framework Code Setup
 
 #### Pre-requisite
 * Java 1.8.x or later
